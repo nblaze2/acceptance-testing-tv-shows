@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TV Guide</title>
+    <link rel="stylesheet" href="/stylesheets/app.css">
+  </head>
+
+  <body>
+  <div class="submission_page">
+    <h1>TV Show Details</h1>
+    <h3>Submit a New Show</h3>
+
+    <form action="/television_shows" method="post">
+      <div>
+        <label for="title">Title:</label>
+        <input value="<%= @title %>" type="text" id="title" name="title" />
+        <span class="error-message"><%= @error ? @error[:title] : "" %></span>
+      </div>
+      <div>
+        <label for="network">Network:</label>
+        <input value="<%= @network %>" type="network" id="network" name="network" />
+        <span class="error-message"><%= @error ? @error[:network] : "" %></span>
+      </div>
+      <div>
+        <label for="synopsis">Synopsis:</label>
+        <input value="<%= @synopsis %>" type="synopsis" id="synopsis" name="synopsis" />
+        <span class="error-message"><%= @error ? @error[:synopsis] : "" %></span>
+      </div>
+      <div>
+        <label for="starting_year">Starting Year:</label>
+        <input value="<%= @starting_year %>" type="starting_year" id="starting_year" name="starting_year" />
+        <span class="error-message"><%= @error ? @error[:starting_year] : "" %></span>
+      </div>
+      <div>
+        <label for="genre">Genre:</label>
+        <input value="<%= @genre %>" type="genre" id="genre" name="genre" />
+        <span class="error-message"><%= @error ? @error[:genre] : "" %></span>
+      </div>
+
+      <input type="submit">
+    </form>
+  <a href="/television_shows">Back to List of Favorite TV Shows</a>
+  </div>
+  </body>
+</html>
