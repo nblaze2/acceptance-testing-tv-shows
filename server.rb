@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'csv'
+require 'pry'
 require_relative "app/models/television_show"
 
 set :bind, '0.0.0.0'  # bind to all interfaces
@@ -18,38 +19,33 @@ post '/television_shows' do
   @error = {}
   @title = params['title']
   if @title.empty?
-    @error[:title] = "You must include a Title"
+    @error[:title] = "Please fill in all required fields"
   end
 
   CSV.foreach("television-shows.csv") do |row|
-    if @url == row[0]
-      @error[:title] = "That article has already been submitted. Please submit another."
+    if @title == row[0]
+      @error[:title] = "That show has already been submitted. Please submit another."
       break
     end
   end
 
   @network = params['network']
   if @network.empty?
-    @error[:network] = "You must include a Network"
+    @error[:network] = "Please fill in all required fields"
   end
 
   @starting_year = params['starting_year']
   if @starting_year.empty?
-    @error[:starting_year] = "You must include a Starting Year"
+    @error[:starting_year] = "Please fill in all required fields"
   end
 
 
   @synopsis = params['synopsis']
   if @synopsis.empty?
-    @error[:synopsis] = "You must include a Synopsis"
-  elsif @synopsis.length < 20
-    @error[:synopsis] = "You must include a Synopsis of at least 20 characters"
+    @error[:synopsis] = "Please fill in all required fields"
   end
 
   @genre = params['genre']
-  if @genre.empty?
-    @error[:genre] = "You must include a Genre"
-  end
 
   if @error.keys.empty?
     CSV.open('television-shows.csv', 'a') do |csv|

@@ -18,26 +18,31 @@
       </div>
       <div>
         <label for="network">Network:</label>
-        <input value="<%= @network %>" type="network" id="network" name="network" />
+        <input value="<%= @network %>" type="text" id="network" name="network" />
         <span class="error-message"><%= @error ? @error[:network] : "" %></span>
       </div>
       <div>
         <label for="synopsis">Synopsis:</label>
-        <input value="<%= @synopsis %>" type="synopsis" id="synopsis" name="synopsis" />
+        <input value="<%= @synopsis %>" type="text" id="synopsis" name="synopsis" />
         <span class="error-message"><%= @error ? @error[:synopsis] : "" %></span>
       </div>
       <div>
         <label for="starting_year">Starting Year:</label>
-        <input value="<%= @starting_year %>" type="starting_year" id="starting_year" name="starting_year" />
+        <input value="<%= @starting_year %>" type="text" id="starting_year" name="starting_year" />
         <span class="error-message"><%= @error ? @error[:starting_year] : "" %></span>
       </div>
       <div>
         <label for="genre">Genre:</label>
-        <input value="<%= @genre %>" type="genre" id="genre" name="genre" />
-        <span class="error-message"><%= @error ? @error[:genre] : "" %></span>
+        <select name="Genre">
+          <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Action">Action</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Fantasy">Fantasy</option>
+        </select>
       </div>
 
-      <input type="submit">
+      <input type="submit" value="Add TV Show">
     </form>
   <a href="/television_shows">Back to List of Favorite TV Shows</a>
   </div>

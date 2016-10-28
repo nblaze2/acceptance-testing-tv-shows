@@ -15,14 +15,14 @@
         <% @starting_year = row[2] %>
         <% @synopsis = row[3] %>
         <% @genre = row[4] %>
-        <% @listing = "#{@title} (#{@network}): #{@synopsis}. Aired: #{@starting_year}. #{@genre}" %>
+        <% @listing = "#{@title} (#{@network}): #{@synopsis} Aired: #{@starting_year}. #{@genre}" %>
         <li>
           <%= @listing %>
         </li>
       <% end %>
     </ul>
   <div class="submit_link">
-    <a href="/television_shows/new">Add another show to list.</a>
+    <a href="/television_shows/new">Add TV Show</a>
   </div>
   </body>
 </html>
