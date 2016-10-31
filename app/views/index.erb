@@ -2,19 +2,18 @@
 <html lang="en">
   <head>
     <title>Acceptance Test the TV Guide</title>
-    <link rel="stylesheet" href="/stylesheets/app.css">
   </head>
 
   <body>
     <h1>List of Shows</h1>
     <h3>TV Shows:</h3>
     <ul>
-      <% @tv_shows.each do |row| %>
-        <% @title = row[0] %>
-        <% @network = row[1] %>
-        <% @starting_year = row[2] %>
-        <% @synopsis = row[3] %>
-        <% @genre = row[4] %>
+      <% @tv_shows.each do |tvshow| %>
+        <% @title = tvshow.title %>
+        <% @network = tvshow.network %>
+        <% @starting_year = tvshow.starting_year %>
+        <% @synopsis = tvshow.synopsis %>
+        <% @genre = tvshow.genre %>
         <% @listing = "#{@title} (#{@network}): #{@synopsis} Aired: #{@starting_year}. #{@genre}" %>
         <li>
           <%= @listing %>

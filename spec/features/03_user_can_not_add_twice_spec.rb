@@ -30,6 +30,6 @@ feature "user adds a new TV show" do
 
     click_button "Add TV Show"
     expect(page).to have_content "That show has already been submitted"
-    expect(page).to have_current_path("/television_shows/new")
+    expect(page).to have_content "Submit a New Show"
   end
 end
